@@ -1,0 +1,94 @@
+<!-- file: index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jay's Crochet Corner</title>
+  <meta name="description" content="Handmade crochet goods by Jay's Crochet Corner — cozy hats, amigurumi, gifts." />
+  <script src="https://cdn.tailwindcss.com"></script> <!-- Tailwind Play CDN for prototypes -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body class="bg-white text-slate-800 antialiased">
+  <header class="bg-rose-50 border-b">
+    <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="/" class="text-2xl font-semibold text-rose-700">Jay's Crochet Corner</a>
+      <nav class="hidden md:flex gap-6">
+        <a href="/" class="hover:underline">Home</a>
+        <a href="products.html" class="hover:underline">Products</a>
+        <a href="contact.html" class="hover:underline">Contact</a>
+      </nav>
+      <button id="mobile-menu-toggle" class="md:hidden px-2 py-1 bg-rose-100 rounded">Menu</button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-rose-50 border-t px-4">
+      <a href="/" class="block py-2">Home</a>
+      <a href="products.html" class="block py-2">Products</a>
+      <a href="contact.html" class="block py-2">Contact</a>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-4 py-10">
+    <section class="grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h1 class="text-4xl font-extrabold text-rose-700">Handmade with ❤️ — Unique crochet gifts</h1>
+        <p class="mt-4 text-slate-700">Cozy hats, baby items, amigurumi, and custom orders made by Jay. Small-batch, sustainably sourced yarns.</p>
+        <div class="mt-6 flex gap-4">
+          <a href="products.html" class="px-5 py-3 bg-rose-600 text-white rounded shadow hover:bg-rose-700">Shop products</a>
+          <a href="contact.html" class="px-5 py-3 border rounded hover:bg-rose-50">Custom order</a>
+        </div>
+      </div>
+      <div class="rounded-lg overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1515548218291-7b8d29fa4a8b?q=80&w=1200&auto=format&fit=crop" alt="Crochet" class="w-full h-64 object-cover">
+      </div>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-semibold text-rose-700">Featured items</h2>
+      <div id="products-grid" class="mt-6 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- JS will fill featured products here -->
+      </div>
+      <div class="mt-8">
+        <a href="products.html" class="text-rose-600 hover:underline">See all products →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-rose-50 border-t mt-12">
+    <div class="max-w-5xl mx-auto px-4 py-6 text-sm text-slate-600">
+      © <span id="year"></span> Jay's Crochet Corner — handmade in your town. Email: <a href="mailto:orders@jayscrochetcorner.com" class="underline">orders@jayscrochetcorner.com</a>
+    </div>
+  </footer>
+
+  <!-- Product Modal (shared across pages) -->
+  <div id="product-modal" class="fixed inset-0 hidden items-center justify-center z-50">
+    <div class="fixed inset-0 bg-black/50" data-modal-close></div>
+    <div class="bg-white rounded-lg max-w-3xl w-full mx-4 overflow-hidden shadow-lg z-10">
+      <div class="flex justify-between items-start p-4 border-b">
+        <h3 id="modal-title" class="text-xl font-semibold"></h3>
+        <button id="modal-close" class="text-slate-500 hover:text-slate-700">✕</button>
+      </div>
+      <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <img id="modal-image" src="" alt="" class="w-full h-64 object-cover rounded">
+        <div>
+          <p id="modal-desc" class="text-slate-700"></p>
+          <p class="mt-4 text-lg font-bold text-rose-700" id="modal-price"></p>
+          <div class="mt-6 flex gap-3">
+            <a id="modal-buy" href="#" class="bg-rose-600 text-white px-4 py-2 rounded">Buy — Email order</a>
+            <button id="modal-close-2" class="px-4 py-2 border rounded">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // small runtime bits: year & mobile nav
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const mmToggle = document.getElementById('mobile-menu-toggle');
+    const mm = document.getElementById('mobile-menu');
+    mmToggle.addEventListener('click', ()=> mm.classList.toggle('hidden'));
+  </script>
+
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
