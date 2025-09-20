@@ -1,0 +1,6 @@
+<!-- file: assets/css/styles.css -->
+/* file: assets/css/styles.css */
+/* Minimal custom styles — prefer Tailwind for layout; small tweaks here */
+#product-modal { display: none; }
+#product-modal.open { display: flex; }
+[data-modal-close] { cursor: pointer; }
